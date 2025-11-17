@@ -2,7 +2,7 @@
 
 #### Author Information
 
-- **Name**: Alexander Alfonso
+- **Name**: Alexander Alfonso, Adrian Sintas, Gabriel Cordero
 - **Student ID**: 6403226
 - **Course**: CAI 4002 - Artificial Intelligence
 - **Semester**: Fall
