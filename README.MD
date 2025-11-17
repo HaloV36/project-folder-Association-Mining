@@ -27,7 +27,14 @@ The application serves as a simulation for a supermarket shopping experience and
 
 #### Installation
 
--movde form don
+If the setup below does not work and this installation was done through the downloaded zip and NOT the github, do the following below
+- mv the project folder from downloads to -/Documents/
+- cd -/Documents/"name of the folder"
+- /opt/homebrew/bin/python3 -m venv .venv
+- source .venv/bin/activate
+- pip install streamlit pandas numpy
+- streamlit run src/main.py
+
 
 ##### Prerequisites
 - Python 3.9+
@@ -82,16 +89,16 @@ python -m streamlit run src/main.py
 #### Algorithm Implementation
 
 ##### Apriori
-[2-3 sentences on your implementation approach]
-- Data structure: [e.g., dictionary of itemsets]
-- Candidate generation: [breadth-first, level-wise]
-- Pruning strategy: [minimum support]
+Apriori is implemented using a horizontal data format. The aglorthm checks the database lvl by lvl and then builds candidates, starting from 1-itemset, by putting together frequent itemsets. Candidates that arent frequent, get pruned.
+- Data structure: Dictionary of itemsets
+- Candidate generation: Breadth-first
+- Pruning strategy: Minimum Support (default set to 0.2)
 
 ##### Eclat
-[2-3 sentences on your implementation approach]
-- Data structure: [e.g., TID-set representation]
-- Search strategy: [depth-first]
-- Intersection method: [set operations]
+Eclat is implemented using a vertical data format. The algorithm enhances itemsets with Depth-first by intersecting TID-sets. The size is divided by the total number of transactions.
+- Data structure: TID-set representation
+- Search strategy: Depth-first
+- Intersection method: Set Operations with minimum support (default set to 0.2)
 
 
 
@@ -99,14 +106,14 @@ python -m streamlit run src/main.py
 
 Tested on provided dataset (80-100 transactions after cleaning):
 
-| Algorithm | Runtime (ms) | Rules Generated | Memory Usage |
-|-----------|--------------|-----------------|--------------|
-| Apriori   | [value]      | [value]         | [value]      |
-| Eclat     | [value]      | [value]         | [value]      |
+| Algorithm | Runtime (ms) | Frequent Itemset | Rules Generated |
+|-----------|--------------|-----------------|------------------|
+| Apriori   | [0]          | [7]             | [11]             |
+| Eclat     | [0]          | [7]             | [11]             |
 
-**Parameters**: min_support = 0.2, min_confidence = 0.5
+**Parameters**: Default: min_support = 0.2, min_confidence = 0.5
 
-**Analysis**: [1-2 sentences explaining performance differences]
+**Analysis**: The Cons of the Apriori method is that it uses Horizontal Data Format, which is low efficiency and needs to scan the entire dataset. The Cons of the Eclat method is that it uses the Vertical Data Format, which is not intuitive and transferriring of horizontal data is required anways. (Xian Su).
 
 
 
@@ -118,18 +125,26 @@ project-root/
 │   ├── algorithms/
 │   │   ├── apriori.[py/js/java]
 │   │   ├── eclat.[py/js/java]
-│   │   └──
+│   │   └── __pycache__
+|   |       └── __init__.cpython-311.pyc
+|   |       └── apriori.cpython-311.pyc
+|   |       └── eclat.cpython-311.pyc
 │   ├── preprocessing/
-│   │   └── cleaner.[py/js/java]
-│   ├── ui/
-│   │   └── [interface files]
-│   └── main.[py/js/java]
+|   |   └──__init__.py
+|   |   └──preprocess.py
+|   |   └──__pychace__
+│   │       └──__init__.cpython-311.pyc
+|   |       └──preprocess.cypthon-311.pyc
+│   ├── __pycache__
+│   │   └── data_io.cypthon-311.pyc
+│   └── main.py
+|   └── data_io.py
 ├── data/
 │   ├── sample_transactions.csv
 │   └── products.csv
 ├── README.md
 ├── REPORT.pdf
-└── [requirements.txt / package.json / pom.xml]
+└── requirements.txt
 ```
 
 
@@ -157,18 +172,17 @@ After Cleaning:
 Verified functionality:
 - [✓] CSV import and parsing
 - [✓] All preprocessing operations
-- [✓] Three algorithm implementations
+- [✓] Two algorithm implementations
 - [✓] Interactive query system
 - [✓] Performance measurement
 
 Test cases:
 - Test case 1: Using default sample_transactions with no additions and a minimum support of 0.2 and a minimum confidence of 0.5 we get
-    - 7 frequent itemsets  
-    - 11 rules generated 
+    - 7 frequent itemsets for Apriori and Eclat
+    - 11 rules generated for Apriori and Eclat
 - Test case 2: Using default sample_transactions with no additions and a minimum support of 0.1 and a minimum confidence of 0.5 we get
-    - 25
-
-
+    - 25 frequent itemsets for Apriori and Eclat
+    - 46 rules generated for Apriori and Eclat
 
 
 
@@ -181,15 +195,10 @@ Test cases:
 
 [Required: 1 paragraph describing which AI tools you used and for what purpose]
 
-Used ChatGPT, to write all the code to run the supermarket shopping application. Used chatGPT various times to fix any errors that the code would run into, and also to explain how the code works and functions. I also used chatgpt to explain he implementaion of both the Apriori and Eclat algorithm. ChatGPT has helped me fill out various things within the readme and report.
-
-Example:
-"Used ChatGPT for explaining Eclat algorithm vertical representation and debugging file parsing errors. Used GitHub Copilot for generating UI boilerplate code. All generated code was reviewed, tested, and adapted for this specific implementation."
+Used ChatGPT, to write all the code to run the supermarket shopping application. Used chatGPT various times to fix any errors that the code would run into, and also to explain how the code works and functions. I also used chatgpt to explain the implementaion of both the Apriori and Eclat algorithm such as the data structure, candidate generation, and pruning. ChatGPT has helped me fill out various things within the readme and report including testing, aglorithms implementation, pseudocode, performance analysis, etc. For this assignment I used both the help of ChatGPT and the AI powerpoint slides.
 
 
 
 #### References
 
 - Course lecture materials
-- [Algorithm papers or resources consulted]
-- [Library documentation links]
