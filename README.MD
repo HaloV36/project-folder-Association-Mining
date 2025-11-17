@@ -3,7 +3,7 @@
 #### Author Information
 
 - **Name**: Alexander Alfonso, Adrian Sintas, Gabriel Cordero
-- **Student ID**: 6403226
+- **Student ID**: 6403226, 6406009, 
 - **Course**: CAI 4002 - Artificial Intelligence
 - **Semester**: Fall
 
@@ -195,7 +195,7 @@ Test cases:
 
 [Required: 1 paragraph describing which AI tools you used and for what purpose]
 
-Used ChatGPT, to write all the code to run the supermarket shopping application. Used chatGPT various times to fix any errors that the code would run into, and also to explain how the code works and functions. I also used chatgpt to explain the implementaion of both the Apriori and Eclat algorithm such as the data structure, candidate generation, and pruning. ChatGPT has helped me fill out various things within the readme and report including testing, aglorithms implementation, pseudocode, performance analysis, etc. For this assignment I used both the help of ChatGPT and the AI powerpoint slides.
+Used ChatGPT, to write the code to run the supermarket shopping application. Used chatGPT various times to fix any errors that the code would run into, and also to explain how the code works and functions. We also used chatgpt to explain the implementaion of both the Apriori and Eclat algorithm such as the data structure, candidate generation, and pruning. ChatGPT has helped us fill out various things within the readme and report including testing, aglorithms implementation, pseudocode, performance analysis, etc. For this assignment we used both the help of ChatGPT and the AI powerpoint slides.
 
 
 
